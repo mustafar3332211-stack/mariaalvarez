@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>María Álvarez Beauty Salón — L'Hospitalet de Llobregat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Poppins:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plum:#3B2039;
+    --plum-dk:#281527;
+    --rose:#D88C9A;
+    --gold:#BE9B4E;
+    --cream:#FAF6F2;
+    --ink-dim:rgba(59,32,57,0.62);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--plum);
+    font-family:'Poppins',sans-serif;
+    line-height:1.6;
+    font-weight:300;
+  }
+  h1,h2,h3,.display{font-family:'Italiana',serif;font-weight:400;letter-spacing:0.02em;}
+  .mono{font-family:'Space Mono',monospace;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 26px;}
+
+  /* gold ornament divider — signature element */
+  .ornament{display:flex;align-items:center;justify-content:center;gap:16px;padding:6px 0;}
+  .ornament .line{height:1px;width:70px;background:linear-gradient(90deg, transparent, var(--gold), transparent);}
+  .ornament .dot{width:5px;height:5px;border-radius:50%;background:var(--gold);}
+
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:22px 26px;
+    background:rgba(250,246,242,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(190,155,78,0.18);
+  }
+  .brand{font-family:'Italiana';font-size:1.3rem;letter-spacing:0.04em;}
+  .brand span{color:var(--gold);}
+  .navlinks{display:none;gap:30px;font-size:0.82rem;font-weight:400;letter-spacing:0.03em;}
+  @media(min-width:740px){.navlinks{display:flex;}}
+  .navlinks a{opacity:0.7;}
+  .navlinks a:hover{opacity:1;color:var(--gold);}
+  .nav-cta{
+    font-family:'Space Mono';font-size:0.72rem;font-weight:700;
+    background:var(--plum);color:var(--cream);
+    padding:9px 18px;border-radius:100px;
+  }
+
+  .hero{
+    min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+    padding:150px 26px 90px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(ellipse 700px 450px at 20% 10%, rgba(216,140,154,0.16), transparent 60%),
+      radial-gradient(ellipse 600px 400px at 85% 90%, rgba(190,155,78,0.14), transparent 60%),
+      var(--cream);
+  }
+  .eyebrow{font-family:'Space Mono';font-size:0.74rem;color:var(--gold);margin-bottom:24px;letter-spacing:0.06em;}
+  .hero h1{font-size:clamp(2.6rem,8vw,5.2rem);line-height:1.08;max-width:760px;}
+  .hero h1 em{font-style:italic;color:var(--rose);}
+  .hero p.lead{max-width:460px;margin-top:24px;font-size:1.02rem;color:var(--ink-dim);}
+  .stars-badge{margin-top:24px;font-family:'Space Mono';font-size:0.8rem;color:var(--gold);letter-spacing:0.05em;}
+  .hero-ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;justify-content:center;}
+  .btn{padding:14px 28px;border-radius:100px;font-weight:500;font-size:0.88rem;display:inline-block;letter-spacing:0.02em;}
+  .btn-primary{background:var(--plum);color:var(--cream);}
+  .btn-ghost{border:1px solid rgba(59,32,57,0.25);color:var(--plum);}
+
+  section{padding:90px 0;}
+  .section-plum{background:var(--plum);color:var(--cream);}
+  .kicker{font-family:'Space Mono';font-size:0.74rem;color:var(--rose);margin-bottom:14px;display:block;letter-spacing:0.04em;}
+  .section-plum .kicker{color:var(--gold);}
+  .section-head{text-align:center;max-width:600px;margin:0 auto 20px;}
+  .section-head h2{font-size:clamp(2rem,4.6vw,3rem);margin-bottom:16px;}
+  .section-head p{color:var(--ink-dim);font-size:1.02rem;}
+  .section-plum .section-head p{color:rgba(250,246,242,0.68);}
+
+  .about-grid{display:grid;grid-template-columns:1fr;gap:36px;margin-top:50px;}
+  @media(min-width:760px){.about-grid{grid-template-columns:1.15fr 0.85fr;}}
+  .about-copy p{margin-bottom:16px;color:var(--ink-dim);}
+  .fact-card{background:var(--plum);color:var(--cream);border-radius:4px;padding:30px;}
+  .fact-card h3{font-size:1.3rem;margin-bottom:16px;color:var(--gold);}
+  .fact-card ul{list-style:none;}
+  .fact-card li{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid rgba(250,246,242,0.14);font-size:0.86rem;color:rgba(250,246,242,0.78);}
+  .fact-card li:last-child{border-bottom:none;}
+  .fact-card li b{color:var(--cream);font-weight:500;text-align:right;}
+
+  .service-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:50px;}
+  @media(min-width:640px){.service-grid{grid-template-columns:repeat(2,1fr);}}
+  .service-card{background:#fff;border:1px solid rgba(190,155,78,0.2);border-radius:6px;padding:28px;}
+  .service-card h3{font-size:1.4rem;margin-bottom:10px;color:var(--plum);}
+  .service-card p{color:var(--ink-dim);font-size:0.9rem;}
+
+  .reviews{display:grid;grid-template-columns:1fr;gap:20px;margin-top:50px;}
+  @media(min-width:740px){.reviews{grid-template-columns:repeat(3,1fr);}}
+  .review{background:rgba(250,246,242,0.06);border:1px solid rgba(250,246,242,0.15);border-radius:6px;padding:26px;}
+  .stars{color:var(--gold);margin-bottom:14px;font-size:0.9rem;}
+  .review p{font-size:0.9rem;color:rgba(250,246,242,0.8);margin-bottom:14px;}
+  .review-who{font-family:'Space Mono';font-size:0.7rem;color:rgba(250,246,242,0.5);}
+
+  .loc-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-top:50px;}
+  @media(min-width:740px){.loc-grid{grid-template-columns:1fr 1fr;}}
+  .loc-card{background:#fff;border:1px solid rgba(190,155,78,0.2);border-radius:6px;padding:28px;}
+  .loc-card h3{font-size:0.88rem;margin-bottom:6px;color:var(--rose);text-transform:uppercase;letter-spacing:0.04em;}
+  .loc-card p{color:var(--ink-dim);font-size:0.92rem;margin-bottom:4px;}
+  .fill-note{
+    font-family:'Space Mono';font-size:0.72rem;color:var(--gold);
+    background:rgba(190,155,78,0.1);border:1px dashed var(--gold);
+    padding:8px 12px;border-radius:4px;display:inline-block;margin-top:6px;
+  }
+  .map-block{
+    border-radius:6px;min-height:220px;background:var(--plum);color:var(--cream);
+    display:flex;align-items:flex-end;padding:22px;position:relative;overflow:hidden;
+  }
+  .map-block::before{
+    content:"";position:absolute;inset:0;opacity:0.5;
+    background:radial-gradient(circle at 30% 30%, rgba(216,140,154,0.25), transparent 55%);
+  }
+  .map-pin{font-family:'Space Mono';font-size:0.75rem;background:var(--gold);color:var(--plum-dk);padding:8px 14px;border-radius:100px;font-weight:700;position:relative;z-index:1;}
+
+  .cta-section{
+    background:linear-gradient(135deg, var(--rose), #B5657A);
+    border-radius:8px;padding:60px 36px;text-align:center;max-width:1000px;margin:0 auto;color:#fff;
+  }
+  .cta-section h2{font-size:clamp(1.9rem,4.4vw,2.6rem);margin-bottom:14px;}
+  .cta-section p{opacity:0.9;max-width:440px;margin:0 auto 26px;}
+  .cta-section .btn-primary{background:var(--plum-dk);color:#fff;}
+  .cta-section .btn-ghost{border-color:rgba(255,255,255,0.4);color:#fff;}
+
+  footer{padding:56px 26px 36px;background:var(--plum-dk);color:rgba(250,246,242,0.55);text-align:center;}
+  footer h4{font-family:'Italiana';color:var(--cream);font-size:1.2rem;margin-bottom:10px;}
+  footer p{font-size:0.85rem;margin-bottom:6px;}
+  .foot-bottom{
+    margin-top:30px;padding-top:20px;border-top:1px solid rgba(250,246,242,0.1);
+    font-family:'Space Mono';font-size:0.7rem;opacity:0.4;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">María <span>Álvarez</span></div>
+  <div class="navlinks">
+    <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#opiniones">Opiniones</a>
+    <a href="#ubicacion">Ubicación</a>
+  </div>
+  <a href="#ubicacion" class="nav-cta">Reservar cita</a>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">AV. DE TOMÀS GIMÉNEZ, 5 · L'HOSPITALET DE LLOBREGAT</div>
+  <h1>Belleza con<br>trato de <em>casa</em></h1>
+  <p class="lead">Un salón de barrio donde cada clienta sale sintiéndose escuchada — cortes, color y tratamientos capilares con la calidez de quien ya te conoce.</p>
+  <div class="stars-badge">★★★★★ 5.0 · 55 reseñas verificadas</div>
+  <div class="hero-ctas">
+    <a href="#servicios" class="btn btn-primary">Ver servicios</a>
+    <a href="#ubicacion" class="btn btn-ghost">Cómo llegar</a>
+  </div>
+</div>
+
+<div class="ornament"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
+
+<section id="nosotros">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">// SOBRE EL SALÓN</span>
+      <h2>Un 5.0 que se nota en el trato</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy">
+        <p>María Álvarez Beauty Salón es de esos sitios donde el boca a boca hace todo el trabajo: 55 reseñas y una nota perfecta de 5.0, algo poco habitual en cualquier salón.</p>
+        <p>Las clientas repiten dos cosas una y otra vez: el asesoramiento personalizado antes de cada cambio de look, y un trato cercano que hace que cada visita se sienta menos a cita y más a rato entre amigas.</p>
+        <p>Es el salón de referencia para quienes buscan un cambio de look en el que confiar plenamente en la profesional que lo hace.</p>
+      </div>
+      <div class="fact-card">
+        <h3>DATOS RÁPIDOS</h3>
+        <ul>
+          <li><span>Valoración</span><b>5.0 / 5 (55 reseñas)</b></li>
+          <li><span>Especialidad</span><b>Cortes, color y mechas</b></li>
+          <li><span>Ambiente</span><b>Trato cercano y personalizado</b></li>
+          <li><span>Ubicación</span><b>L'Hospitalet de Llobregat</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-plum" id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">// SERVICIOS</span>
+      <h2>Cuidado capilar de principio a fin</h2>
+      <p>Desde un corte sencillo hasta un cambio de look completo.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card" style="background:rgba(250,246,242,0.06);border-color:rgba(250,246,242,0.15);">
+        <h3 style="color:var(--cream);">Cortes y peinados</h3>
+        <p style="color:rgba(250,246,242,0.68);">Corte a medida y peinado para el día a día o para una ocasión especial</p>
+      </div>
+      <div class="service-card" style="background:rgba(250,246,242,0.06);border-color:rgba(250,246,242,0.15);">
+        <h3 style="color:var(--cream);">Color y mechas</h3>
+        <p style="color:rgba(250,246,242,0.68);">Cambios de color y mechas con asesoramiento previo según tu tipo de cabello</p>
+      </div>
+      <div class="service-card" style="background:rgba(250,246,242,0.06);border-color:rgba(250,246,242,0.15);">
+        <h3 style="color:var(--cream);">Tratamientos capilares</h3>
+        <p style="color:rgba(250,246,242,0.68);">Cuidado y reparación para dejar el cabello sano de raíz a puntas</p>
+      </div>
+      <div class="service-card" style="background:rgba(250,246,242,0.06);border-color:rgba(250,246,242,0.15);">
+        <h3 style="color:var(--cream);">Cambio de look</h3>
+        <p style="color:rgba(250,246,242,0.68);">Asesoramiento completo cuando no sabes qué corte o color elegir</p>
+      </div>
+    </div>
+    <span class="fill-note" style="margin-top:30px;color:var(--gold);border-color:var(--gold);">💇‍♀️ Precios y disponibilidad: consultar en el salón</span>
+  </div>
+</section>
+
+<section id="opiniones">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">// OPINIONES</span>
+      <h2>Lo que dicen las clientas</h2>
+    </div>
+    <div class="reviews">
+      <div class="review" style="background:#fff;border-color:rgba(190,155,78,0.2);">
+        <div class="stars">★★★★★</div>
+        <p style="color:var(--ink-dim);">Destacan a María por asesorar muy bien sobre lo que necesita cada cabello, con un trato muy cuidado.</p>
+        <div class="review-who" style="color:rgba(59,32,57,0.45);">— Reseña verificada</div>
+      </div>
+      <div class="review" style="background:#fff;border-color:rgba(190,155,78,0.2);">
+        <div class="stars">★★★★★</div>
+        <p style="color:var(--ink-dim);">Varias clientas coinciden en que las mechas siempre quedan perfectas y con resultados muy naturales.</p>
+        <div class="review-who" style="color:rgba(59,32,57,0.45);">— Reseña verificada</div>
+      </div>
+      <div class="review" style="background:#fff;border-color:rgba(190,155,78,0.2);">
+        <div class="stars">★★★★★</div>
+        <p style="color:var(--ink-dim);">Tanto María como Alba reciben elogios por su profesionalidad, siendo mencionadas como excepcionales.</p>
+        <div class="review-who" style="color:rgba(59,32,57,0.45);">— Reseña verificada</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ubicacion">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="kicker">// CÓMO LLEGAR</span>
+      <h2>En L'Hospitalet de Llobregat</h2>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-card">
+        <h3>DIRECCIÓN</h3>
+        <p>Avinguda de Tomàs Giménez, 5</p>
+        <p>08906 L'Hospitalet de Llobregat, Barcelona</p>
+        <h3 style="margin-top:22px;">CONTACTO</h3>
+        <span class="fill-note">📞 Añadir teléfono del salón</span>
+      </div>
+      <div class="map-block">
+        <span class="map-pin">📍 Av. de Tomàs Giménez, 5 · L'Hospitalet</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-section">
+      <h2>Reserva tu próxima cita</h2>
+      <p>Cuéntanos qué cambio tienes en mente y te asesoramos antes de empezar.</p>
+      <div class="hero-ctas">
+        <span class="fill-note" style="border-color:rgba(255,255,255,0.5);color:#fff;background:rgba(255,255,255,0.1);">📞 Añadir teléfono para reservas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h4>MARÍA ÁLVAREZ BEAUTY SALÓN</h4>
+  <p>Av. de Tomàs Giménez, 5 · L'Hospitalet de Llobregat</p>
+  <p>5.0 ★ · 55 reseñas verificadas</p>
+  <div class="foot-bottom">© 2026 María Álvarez Beauty Salón · Barcelona, España</div>
+</footer>
+
+</body>
+</html>
